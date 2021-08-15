@@ -11,6 +11,7 @@ plt.pie(
     startangle=90,
     shadow=True,
     explode=(0, 0.1, 0, 0),  # 饼装外溢显示的程度
+    label='as income',
     autopct='%1.1f%%'  # 饼图内百分比的数量
 )
 plt.title('title')
