@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Mamba Bootstrap Template - Index</title>
+  <script src="static/assets/js/echarts.min.js"></script>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/assets/img/favicon.png" rel="icon">
+  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/assets/css/style.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container">
+
+      <div class="logo float-left">
+        <h1 class="text-light"><a href="index.html"><span>Mamba</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="static/assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav class="nav-menu float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="/index">首页 <i class="la la-angle-down"></i></a></li>
+          <li><a href="/movie">电影</a></li>
+          <li><a href="/score">评分</a></li>
+          <li><a href="/word">词云</a></li>
+          <li><a href="/team">团队</a></li>
+          </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Our Team Section ======= -->
+  <section id="team" class="team">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>豆瓣电影TOP250评分展示</h2>
+      </div>
+    </div>
+  </section><!-- End Our Team Section -->
+
+  <section class="counts section-bg">
+      <div class="container">
+        <!--  图标展示部分开始  -->
+        <div id="main" style="width: 100%;height:400px;"></div>
+         <!-- 图片展示部分的脚本文件-->
+        <script type="text/javascript">
+          // 基于准备好的dom，初始化echarts实例
+          var myChart = echarts.init(document.getElementById('main'));
+
+          // 指定图表的配置项和数据
+          var option = {
+                title: {
+                    text: '电影评分分布',
+                    subtext: '豆瓣250',
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                },
+                legend: {
+                    left: 'center',
+                    top: 'bottom',
+                     data: [9.7, 9.6, 9.5, 9.4, 9.3, 9.2, 9.1, 9.0, 8.9, 8.8, 8.7, 8.6, 8.4, 8.5, 8.3]
+                          },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        mark: {show: true},
+                <!--            dataView: {show: true, readOnly: false},-->
+                <!--            restore: {show: true},-->
+                <!--            saveAsImage: {show: true}-->
+                    }
+                },
+                series: [
+                      {
+                        name: '面积模式',
+                        type: 'pie',
+                        radius: [20, 140],
+                        roseType: 'area',
+                        itemStyle: {
+                            borderRadius: 15
+                        },
+                        data: [
+                            {value: {{ num[0] }}, name: {{ score[0] }} },
+                            {value: {{ num[1] }}, name: {{ score[1] }} },
+                            {value: {{ num[2] }}, name: {{ score[2] }} },
+                            {value: {{ num[3] }}, name: {{ score[3] }} },
+                            {value: {{ num[4] }}, name: {{ score[4] }} },
+                            {value: {{ num[5] }}, name: {{ score[5] }} },
+                            {value: {{ num[6] }}, name: {{ score[6] }} },
+                            {value: {{ num[7] }}, name: {{ score[7] }} },
+                            {value: {{ num[8] }}, name: {{ score[8] }} },
+                            {value: {{ num[9] }}, name: {{ score[9] }} },
+                            {value: {{ num[10] }}, name: {{ score[10] }} },
+                            {value: {{ num[11] }}, name: {{ score[11] }} },
+                            {value: {{ num[12] }}, name: {{ score[12] }} },
+                            {value: {{ num[13] }}, name: {{ score[13] }} },
+                            {value: {{ num[14] }}, name: {{ score[14] }} },
+                        ]
+                    }
+                ]
+            };
+          // 使用刚指定的配置项和数据显示图表。
+          myChart.setOption(option);
+        </script>
+        <!--  图标展示部分结束  -->
+
+      </div>
+    </section><!-- End Counts Section -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Mamba</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+       More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="static/assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+  <script src="static/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="static/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="static/assets/vendor/counterup/counterup.min.js"></script>
+  <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+
+
+  <!-- Template Main JS File -->
+
+  <script src="static/assets/js/main.js"></script>
+
+
+<style>
+.copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
+</style>
+<div class="copyrights" id="links20210126">
+	Collect from <a href="http://www.cssmoban.com/"  title="网站模板">模板之家</a>
+	<a href="https://www.chazidian.com/"  title="查字典">查字典</a>
+</div>
+
+</body>
+
+</html>

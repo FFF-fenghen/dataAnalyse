@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.min.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+ option = {
+    title: {
+        text: '南丁格尔玫瑰图',
+        subtext: '纯属虚构',
+        left: 'center'
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b} : {c} ({d}%)'
+    },
+    legend: {
+        left: 'center',
+        top: 'bottom',
+         data: [9.7, 9.6, 9.5, 9.4, 9.3, 9.2, 9.1, 9.0, 8.9, 8.8, 8.7, 8.6, 8.4, 8.5, 8.3]
+              },
+    toolbox: {
+        show: true,
+        feature: {
+            mark: {show: true},
+    <!--            dataView: {show: true, readOnly: false},-->
+    <!--            restore: {show: true},-->
+    <!--            saveAsImage: {show: true}-->
+        }
+    },
+    series: [
+          {
+            name: '面积模式',
+            type: 'pie',
+            radius: [20, 140],
+            roseType: 'area',
+            itemStyle: {
+                borderRadius: 15
+            },
+            data: [
+                {value: 30, name: 'rose 1'},
+                {value: 28, name: 'rose 2'},
+                {value: 26, name: 'rose 3'},
+                {value: 24, name: 'rose 4'},
+                {value: 22, name: 'rose 5'},
+                {value: 20, name: 'rose 6'},
+                {value: 18, name: 'rose 7'},
+                {value: 18, name: 'rose 8'},
+                {value: 18, name: 'rose 9'},
+                {value: 18, name: 'rose 10'},
+                {value: 18, name: 'rose 11'},
+                {value: 18, name: 'rose 12'},
+                {value: 18, name: 'rose 13'},
+                {value: 18, name: 'rose 14'},
+                {value: 16, name: 'rose 15'}
+            ]
+        }
+    ]
+};
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
