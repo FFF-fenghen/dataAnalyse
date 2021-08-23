@@ -1,6 +1,4 @@
 import json
-from pprint import pprint
-import time
 
 from bs4 import BeautifulSoup  # 解析网页，获取数据
 import re  # 正则表达式
@@ -13,11 +11,6 @@ table1 = 1
 def main(baseurl):
     print('start crawling')
     datalist = getData(baseurl)
-
-    times = time.time()
-    # savepath = str(times) + '51job2.xls'
-    # 保存数据
-    # saveData(datalist, savepath)  # 保存数据到excel表格
     savaData2DB(datalist)
 
 
@@ -54,7 +47,6 @@ def getData(baseurl):
         dit['companysize'] = i['companysize_text']
         print(dit)
         datalist.append(dit)
-    # print('********')
     return datalist
 
 
@@ -141,7 +133,6 @@ def savaData2DB(datalist):
 
     # 开始存储数据到数据库
     print(' 开始存储数据到数据库*********************')
-    # datalist = json.loads(datalist)
     for i in datalist:
         data = {}
         data[0] = i['job_name']
@@ -164,12 +155,11 @@ def savaData2DB(datalist):
            ''' % (data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7])  # % 是占位符，’,‘表示各个词组之间使用“,”连接
         print(sql)
         cursor.execute(sql)
-
     # 数据存储完毕
+
     cursor.close()
     db.commit()
     db.close()
-
 
 # 创建table
 def create_table():
@@ -200,7 +190,7 @@ def create_table():
 
 
 if __name__ == '__main__':
-    # create_table()
+    # create_table()  # 第一次创建的时候根据需要创建数据table
     for i in range(17):
         i = str(i)
         baseurl = ''
