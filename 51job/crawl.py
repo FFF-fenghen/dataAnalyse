@@ -45,7 +45,6 @@ def getData(baseurl):
         dit['companytype'] = i['companytype_text']
         dit['jobwelf'] = i['jobwelf']
         dit['companysize'] = i['companysize_text']
-        print(dit)
         datalist.append(dit)
     return datalist
 
@@ -115,7 +114,6 @@ def getMonthSalary(data):
             avarage = avarage * 10000
         elif unit == '千':
             avarage = avarage * 1000
-    print('avarage:%d',avarage)
     return avarage
 
 
@@ -147,13 +145,11 @@ def savaData2DB(datalist):
         data[5] = i['company_name']
         data[6] = i['companysize']
         data[7] = i['jobwelf']
-        print(data)
         sql = '''
                insert into job_ai
                (job_name, salary,workArea,work_exper,qualification,company_name,company_size,welfare)
                values('%s',%d,'%s','%s','%s','%s','%s','%s')
-           ''' % (data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7])  # % 是占位符，’,‘表示各个词组之间使用“,”连接
-        print(sql)
+           ''' % (data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7])
         cursor.execute(sql)
     # 数据存储完毕
 
