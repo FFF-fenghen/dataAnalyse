@@ -1,0 +1,13 @@
+option = {
+    xAxis: {
+        type: 'category',
+        data: ['8K<', '8K-12K', '12-15K', '15-20K', '20-25', '25-30', '<30K']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [{
+        data: [{{ salary[0] }}, {{ salary[1] }}, {{ salary[2] }}, {{ salary[3] }}, {{ salary[4] }}, {{ salary[5] }}, {{ salary[6] }}],
+        type: 'bar'
+    }]
+};
